@@ -1,18 +1,19 @@
 const orm = require('../config/orm')
 
 const burger = {
-    all: function (cb) {
-        orm.selectAll("burgers", function(results) {
+    selectAll: function (cb) {
+        orm.selectAll("burgers", function (results) {
             cb(results)
         })
     },
-    createOne: function (burgerName, isDevoured, cb) {
-        orm.insertOne("burgers", "burger_name", "devoured", burgerName, isDevoured, function (results) {
+    insertOne: function (isDevoured, cb) {
+        orm.insertOne("burgers", "burger_name", isDevoured, function (results) {
             cb(results)
         })
     },
-    update: function (columnToSearch, value, cb) {
-        orm.updateOne("burgers", columnToSearch, value, function (results) {
+    updateOne: function (devouredBoolean, value, cb) {
+        console.log({value});
+        orm.updateOne("burgers", "devoured", devouredBoolean, value, function (results) {
             cb(results)
         })
     }

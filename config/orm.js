@@ -1,4 +1,4 @@
-const connection = require('./connection')
+const connection = require('../config/connection')
 
 const orm = {
   selectAll: function (tableName, cb) { 
@@ -8,16 +8,16 @@ const orm = {
           cb(results);
       })
    },
-  insertOne: function (tableName, burgerName, devoured, nameValue, devouredValue, cb) { 
-      const query = "INSERT INTO ?? (??, ??) VALUES (?, ?)";
-      connection.query(query, [tableName, burgerName, devoured, nameValue, devouredValue], function(err, results) {
+  insertOne: function (tableName, burgerName, devouredValue, cb) { 
+      const query = "INSERT INTO ?? (??) VALUES (?)";
+      connection.query(query, [tableName, burgerName, devouredValue], function(err, results) {
           if (err) throw err;
           cb(results);
       })
    },
-  updateOne: function (tableName, columnToSearch, value, cb) {
-      const query = "UPDATE ?? SET ?? = ?";
-      connection.query(query, [tableName, columnToSearch, value], function (err, results) {
+  updateOne: function (tableName, columnToSearch, devouredBoolean, value, cb) {
+      const query = `UPDATE ${tableName} SET ${columnToSearch} = ${devouredBoolean} WHERE ${value}`;
+      connection.query(query, [tableName, columnToSearch, devouredBoolean, value], function (err, results) {
           if (err) throw err;
           cb(results);
       })
