@@ -16,6 +16,11 @@ const burger = {
         orm.updateOne("burgers", "devoured", devouredBoolean, value, function (results) {
             cb(results)
         })
+    },
+    deleteOne: function (value, cb) {
+        orm.deleteOne("burgers", value, function(results) {
+            cb(results)
+        })
     }
 }
 

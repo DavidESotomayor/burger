@@ -21,6 +21,13 @@ const orm = {
           if (err) throw err;
           cb(results);
       })
+  },
+  deleteOne: function (tableName, value, cb) {
+    const query = `DELETE FROM ${tableName} WHERE ${value}`;
+    connection.query(query, function (err, results) {
+        if (err) throw err;
+        cb(results);
+    })
   }
 }
 

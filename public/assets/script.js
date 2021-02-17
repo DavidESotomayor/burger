@@ -33,4 +33,16 @@ $( function() {
                 })
         }
     })
+
+    $('.delete-btn').on('click', function() {
+        const id = $(this).data('id')
+
+        let currentURL = window.location.origin;
+        $.ajax(`${currentURL}/api/burgers/${id}`, {
+            type: "DELETE"
+        }).then(function (data) {
+            console.log(`ID: ${id} is deleted!`);
+            $('.devoured-burger' + id).remove()
+        })
+    })
 });
