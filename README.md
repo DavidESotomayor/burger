@@ -10,10 +10,10 @@ This repository contains the _**Eat-Da-Burger**_ application, which was created 
 4. In the **Devour** table, the user can click the "*Delete*" button and remove the burger from the page (as well as the database).
 5. The program remains persistent on reloads no matter what action is taken.
 
-
+#### Try It Out
+Feel free to visit the app: [Eat-Da-Burger](https://pacific-peak-81843.herokuapp.com/)
 ![Eat-Da-Burger](./public/assets/img/Eat-Da-Burger.png)
 
-    
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
